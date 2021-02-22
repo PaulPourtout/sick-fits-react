@@ -7,7 +7,9 @@
     "dev": "next -p 7777",
     "build": "next build",
     "start": "next start -p 7777",
-    "test": "NODE_ENV=test jest --watch"
+    "test": "NODE_ENV=test jest --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "author": "",
   "license": "ISC",
@@ -63,7 +65,11 @@
   "eslintConfig": {
     "extends": [
       "wesbos"
-    ]
+    ],
+    "rules": {
+      "no-console": 2,
+      "prettier/prettier": 0
+    }
   },
   "jest": {
     "setupFilesAfterEnv": [
