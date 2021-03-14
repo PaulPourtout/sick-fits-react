@@ -12,9 +12,9 @@ export const ALL_PRODUCTS_QUERY = gql`
         price
         description
         photo {
-        image {
-            publicUrlTransformed
-        }
+            image {
+                publicUrlTransformed
+            }
         }
     }
     }
@@ -39,11 +39,11 @@ export default function Products({page}) {
 
     return <div>
       <ProductsList>
-          {
-              data.allProducts.map(product => (
-                  <Product key={product.id} product={product} />
-              ))
-          }
+        {
+            data?.allProducts.map(product => (
+                <Product key={product.id} product={product} />
+            ))
+        }
       </ProductsList>
     </div>;
   }
