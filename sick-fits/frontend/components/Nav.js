@@ -9,6 +9,7 @@ export default function Nav() {
     const user = useUser();
     const {openCart} = useCart();
 
+    console.log("USER", user)
     return <NavStyles>
         <Link href="/products">products</Link>
         {

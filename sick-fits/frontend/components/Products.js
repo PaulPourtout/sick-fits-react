@@ -34,13 +34,15 @@ export default function Products({page}) {
         }
     });
 
+    const products = data?.allProducts || [];
+
     if (loading) { return <p>Loading...</p> }
     if (error) { return <p>Error: {error}</p> }
 
     return <div>
       <ProductsList>
         {
-            data?.allProducts.map(product => (
+            products.map(product => (
                 <Product key={product.id} product={product} />
             ))
         }
