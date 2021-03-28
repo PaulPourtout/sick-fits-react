@@ -9,7 +9,6 @@ export default async function addToCart(
   {productId}: {productId: string},
   context: KeystoneContext
 ): Promise<CartItemCreateInput> {
-  console.log("ADDING TO CART")
   // 1. query current user
   const sesh = context.session as Session;
   if (!sesh.itemId) {

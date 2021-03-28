@@ -5,8 +5,11 @@ import PriceTag from './styles/PriceTag';
 import formatMoney from '../lib/formatMoney';
 import DeleteProduct from './DeleteProduct';
 import AddToCart from './AddToCart';
+import { useUser } from './User';
 
 export default function Product({product}) {
+    const user = useUser();
+
     return (
         <ItemStyles>
             <img src={product?.photo?.image?.publicUrlTransformed} alt={product.name}/>
@@ -18,13 +21,9 @@ export default function Product({product}) {
             <PriceTag>{formatMoney(product.price)}</PriceTag>
             <p>{product.description}</p>
             <div className="buttonList">
-                <Link href={{
-                    pathname: 'update',
-                    query: {
-                        id: product.id
-                    }
-                }}>Edit ✏️</Link>
+                {user?.role?.canManageProducts && <Link href={`/update/${product.id}`}>Edit ✏️</Link>}
                 <AddToCart id={product.id} />
+                {/* {user?.role?.canManageProducts && <DeleteProduct id={product.id}>Delete</DeleteProduct>} */}
                 <DeleteProduct id={product.id}>Delete</DeleteProduct>
             </div>
         </ItemStyles>

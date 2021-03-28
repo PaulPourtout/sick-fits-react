@@ -65,7 +65,7 @@ export default function UpdateProduct({ id }) {
                         description: inputs.description,
                     }
                 });
-                console.log(res)
+
                 // clearForm();
 
                 // Router.push({

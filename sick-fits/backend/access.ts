@@ -30,6 +30,7 @@ export const rules = {
       return false;
     }
     if (permissions.canManageProducts?.({session})) {
+      console.log("CAN MANAGE PRODUCTS", session)
       return true;
     }
     // 2. If not, do they own the item ?

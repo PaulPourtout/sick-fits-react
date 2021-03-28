@@ -9,15 +9,14 @@ export default function Nav() {
     const user = useUser();
     const {openCart} = useCart();
 
-    console.log("USER", user)
     return <NavStyles>
         <Link href="/products">products</Link>
         {
             user && (
                 <>
-                    <Link href="/sell">sell</Link>
+                    {user.role?.canManageProducts && <Link href="/sell">sell</Link>}
                     <Link href="/orders">orders</Link>
-                    <Link href="/account">account</Link>
+                    {/* <Link href="/account">account</Link> */}
                     <SignOut />
                     <button type="button" onClick={openCart}>
                         My Cart
@@ -29,11 +28,7 @@ export default function Nav() {
             )
         }
         {
-            !user && (
-                <>
-                    <Link href="/signin">Sign In</Link>
-                </>
-            )
+            !user && <Link href="/signin">Sign In</Link>
         }
     </NavStyles>
 }

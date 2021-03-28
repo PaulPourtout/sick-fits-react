@@ -29,7 +29,6 @@ export default function RequestReset() {
         try {
             e.preventDefault();
             await requestReset(inputs);
-            console.log({data})
             resetForm();
         } catch(error) {
             console.error(error);

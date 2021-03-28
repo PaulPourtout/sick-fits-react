@@ -29,7 +29,6 @@ export default function Reset({token}) {
         try {
             e.preventDefault();
             await resetPassword(inputs);
-            console.log({data})
             resetForm();
         } catch(error) {
             console.error(error);
